@@ -66,4 +66,4 @@
 - [x] Use Chrome at 1440x1000 and 390x844 to verify no blank output, overlap, clipping, or horizontal overflow.
 - [x] Verify Chinese/English switching, `?lang=en`, persistence, mobile navigation, anchor navigation, and CV download.
 - [x] Update `PLAN.md` stages and README with the final repository workflow.
-- [ ] Run local CI, create a PR linked to the implementation issue, merge using the documented workflow, enable GitHub Pages from `main` root, and verify the public URL returns HTTP 200.
+- [x] Run local CI, create a PR linked to the implementation issue, merge using the documented workflow, enable GitHub Pages from `main` root, and verify the public URL returns HTTP 200.
