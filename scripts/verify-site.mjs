@@ -6,6 +6,7 @@ const requiredFiles = [
   "assets/css/site.css",
   "assets/js/site.js",
   "assets/images/profile.jpg",
+  "assets/images/favicon.png",
   "assets/docs/Yuehua_Zhu_CV_public.pdf",
 ];
 
