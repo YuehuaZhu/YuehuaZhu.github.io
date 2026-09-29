@@ -1,0 +1,12 @@
+.DS_Store
+.superpowers/
+
+# Private source material stays local. Public derivatives live under assets/.
+/Yuehua_Zhu_CV.pdf
+/Yuehua_Zhu_CV_public.pdf
+/zyh2.jpg
+/朱跃华-相关材料-原版.pdf
+
+# Local browser artifacts
+/screenshots/
+*.log
