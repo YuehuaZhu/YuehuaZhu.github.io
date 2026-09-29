@@ -26,6 +26,7 @@ test("homepage exposes the public identity and evidence links", () => {
   assert.match(html, /https:\/\/scholar\.google\.com\/citations\?user=NW7Fu6EAAAAJ/);
   assert.match(html, /assets\/docs\/Yuehua_Zhu_CV_public\.pdf/);
   assert.match(html, /assets\/images\/profile\.jpg/);
+  assert.match(html, /assets\/images\/favicon\.png/);
 });
 
 test("homepage contains the revised bilingual content", () => {
