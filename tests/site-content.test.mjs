@@ -38,6 +38,7 @@ test("homepage contains the revised bilingual content", () => {
   assert.match(html, /内容推荐与大模型算法/);
   assert.match(html, /Content Recommendation &amp; LLM Systems/);
   assert.doesNotMatch(html, /项目与奖项材料|Project &amp; Award Materials|高级算法专家|Senior Algorithm Expert/);
+  assert.doesNotMatch(html, /正文保持克制|The main narrative stays concise/);
 });
 
 test("all new-tab links protect the opener", () => {

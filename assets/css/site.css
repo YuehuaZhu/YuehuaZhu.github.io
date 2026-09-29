@@ -457,14 +457,6 @@ button:focus-visible {
   color: #715a2d;
 }
 
-.source-note {
-  margin: 28px 0 0;
-  padding: 14px 16px;
-  background: #f0f1ed;
-  color: #747c77;
-  font-size: 12px;
-}
-
 .site-footer {
   padding: 26px 0 42px;
   border-top: 1px solid var(--line);
