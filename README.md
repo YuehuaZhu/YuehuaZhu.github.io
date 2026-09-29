@@ -14,6 +14,11 @@ Open <http://localhost:8000/>.
 
 ```bash
 npm test
+npm run check
 ```
 
 The production site is intentionally build-free: GitHub Pages serves the committed HTML, CSS, JavaScript, image, and public CV directly from `main`.
+
+## Content boundaries
+
+Only the sanitized CV under `assets/docs/` and the optimized portrait under `assets/images/` are public. Source documents and original photos in the project root are ignored by Git.

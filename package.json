@@ -1,0 +1,11 @@
+{
+  "name": "yuehuazhu.github.io",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "check": "node scripts/verify-site.mjs",
+    "check:browser": "node scripts/browser-check.mjs"
+  }
+}
