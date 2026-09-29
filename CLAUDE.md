@@ -18,7 +18,8 @@
 ```bash
 python3 -m http.server 8000
 open http://localhost:8000
-node scripts/verify-site.mjs
+npm test
+npm run check
 ```
 
 ## 架构
@@ -44,6 +45,8 @@ githubResume/
 │   ├── images/profile.jpg
 │   └── docs/Yuehua_Zhu_CV_public.pdf
 ├── scripts/verify-site.mjs
+├── tests/                    Node.js content and language tests
+├── .github/workflows/ci.yml  Pull request and main-branch checks
 ├── CLAUDE.md
 ├── PLAN.md
 └── README.md
@@ -54,7 +57,7 @@ githubResume/
 - 桌面和 390px 移动视口均不得横向溢出或遮挡内容。
 - 中文、英文可双向切换，刷新后保留语言，`?lang=zh` / `?lang=en` 可直接访问。
 - 邮箱、GitHub、Google Scholar、简历下载及证据链接必须保留有效地址。
-- 修改完成后运行 `node scripts/verify-site.mjs`，并使用浏览器截图检查桌面与移动端。
+- 修改完成后运行 `npm test` 和 `npm run check`，并使用浏览器截图检查桌面与移动端。
 
 ## 排障
 
