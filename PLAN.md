@@ -21,6 +21,7 @@
 - `assets/css/site.css`：桌面/移动布局、排版和视觉变量，不承载文案。
 - `assets/js/site.js`：语言切换、移动导航和活动栏目，不保存业务内容。
 - `assets/images/`、`assets/docs/`：只放经过脱敏的公开素材；原始材料不进入部署目录。
+- `robots.txt`、`sitemap.xml`：声明允许抓取范围、正式 sitemap 和首页 canonical URL。
 
 这样内容、视觉、交互三块低耦合，后续改文案不会影响布局或逻辑。
 
@@ -36,6 +37,7 @@
 - 英文模式下，导航与主标题均显示 “Yuehua Zhu”。
 - 公开英文简历将 “Incoming Postdoctoral Researcher” 改为 “Postdoctoral Researcher”。
 - 新头像在现有构图基础上收紧约 15%，提高小尺寸下的人脸识别度。
+- 首页增加 canonical 与 Person JSON-LD，根目录增加 robots 和 sitemap；NeurIPS 2020 论文补充腾讯 AI Lab 官方报道。
 
 ## 路线图
 
@@ -62,6 +64,7 @@
 - 页面不存在“项目与奖项材料”“高级算法专家”或 “Incoming Postdoctoral Researcher”。
 - 量化业绩中英文均明确标注自 2026.01 起。
 - 自动验证脚本退出码为 0。
+- 首页、`robots.txt` 与 `sitemap.xml` 在线返回 200，且搜索发现信号统一指向 `https://yuehuazhu.github.io/`。
 
 ## 发布边界
 
@@ -77,3 +80,4 @@
 
 - 为论文和媒体链接增加定期可用性检查，避免外部页面失效。
 - 增加 Open Graph 元数据，改善微信、LinkedIn 等平台分享卡片。
+- 在 Google Search Console 验证站点、提交 sitemap 并请求首页编入索引。

@@ -29,7 +29,9 @@ index.html
   |-- assets/css/site.css       页面布局与响应式样式
   |-- assets/js/site.js         语言切换、移动导航、活动栏目
   |-- assets/images/profile.jpg 公开头像
-  `-- assets/docs/*.pdf         公开下载文件
+  |-- assets/docs/*.pdf         公开下载文件
+  |-- robots.txt                搜索引擎抓取规则与 sitemap 声明
+  `-- sitemap.xml               正式站 canonical URL 清单
 ```
 
 正式站点不使用框架或构建工具。内容语义保留在 `index.html`，中英文通过 `data-zh` / `data-en` 共用同一 DOM；语言查询参数优先于本地偏好。
@@ -39,6 +41,8 @@ index.html
 ```text
 githubResume/
 ├── index.html
+├── robots.txt
+├── sitemap.xml
 ├── assets/
 │   ├── css/site.css
 │   ├── js/site.js
@@ -57,6 +61,7 @@ githubResume/
 - 桌面和 390px 移动视口均不得横向溢出或遮挡内容。
 - 中文、英文可双向切换，刷新后保留语言，`?lang=zh` / `?lang=en` 可直接访问。
 - 邮箱、GitHub、Google Scholar、简历下载及证据链接必须保留有效地址。
+- canonical、Person JSON-LD、robots 与 sitemap 必须统一指向正式站根地址。
 - 修改完成后运行 `npm test` 和 `npm run check`，并使用浏览器截图检查桌面与移动端。
 
 ## 排障
