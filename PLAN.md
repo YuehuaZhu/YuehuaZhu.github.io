@@ -38,6 +38,7 @@
 - 公开英文简历将 “Incoming Postdoctoral Researcher” 改为 “Postdoctoral Researcher”。
 - 新头像在现有构图基础上收紧约 15%，提高小尺寸下的人脸识别度。
 - 首页增加 canonical 与 Person JSON-LD，根目录增加 robots 和 sitemap；NeurIPS 2020 论文补充腾讯 AI Lab 官方报道。
+- 根目录保留 Google Search Console HTML 所有权验证文件，部署后由站点所有者完成验证、提交 sitemap 与请求收录。
 
 ## 路线图
 
@@ -80,4 +81,4 @@
 
 - 为论文和媒体链接增加定期可用性检查，避免外部页面失效。
 - 增加 Open Graph 元数据，改善微信、LinkedIn 等平台分享卡片。
-- 在 Google Search Console 验证站点、提交 sitemap 并请求首页编入索引。
+- 在 Google Search Console 点击完成所有权验证、提交 sitemap 并请求首页编入索引。
