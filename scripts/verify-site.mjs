@@ -10,6 +10,7 @@ const requiredFiles = [
   "assets/docs/Yuehua_Zhu_CV_public.pdf",
   "robots.txt",
   "sitemap.xml",
+  "googlea2cbce590c5ac459.html",
 ];
 
 for (const file of requiredFiles) {
@@ -24,7 +25,13 @@ for (const asset of requiredFiles.filter((file) => file.startsWith("assets/"))) 
 
 const robots = readFileSync("robots.txt", "utf8");
 const sitemap = readFileSync("sitemap.xml", "utf8");
+const googleVerification = readFileSync("googlea2cbce590c5ac459.html", "utf8");
 assert.match(robots, /Sitemap: https:\/\/yuehuazhu\.github\.io\/sitemap\.xml/);
 assert.match(sitemap, /<loc>https:\/\/yuehuazhu\.github\.io\/<\/loc>/);
+assert.equal(
+  googleVerification,
+  "google-site-verification: googlea2cbce590c5ac459.html",
+  "Google Search Console verification file changed",
+);
 
 console.log(`Verified ${requiredFiles.length} production files.`);
