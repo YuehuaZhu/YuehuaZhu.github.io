@@ -140,11 +140,11 @@ Expected: all tests pass and 8 production files are verified.
 
 Commit the implementation with `feat: add search discovery signals and Tencent source`, push the branch, and create a PR describing SEO files, structured data, and the verified Tencent AI Lab link.
 
-- [ ] **Step 4: Merge with the team-collab workflow**
+- [x] **Step 4: Merge with the team-collab workflow**
 
 Rebase-merge the PR, update local `main`, evaluate `CLAUDE.md` and `PLAN.md`, and clean the remote and local hotfix branch.
 
-- [ ] **Step 5: Verify production**
+- [x] **Step 5: Verify production**
 
 Confirm GitHub Pages reports `built`, then verify:
 
