@@ -29,6 +29,22 @@ test("homepage exposes the public identity and evidence links", () => {
   assert.match(html, /assets\/images\/favicon\.png/);
 });
 
+test("homepage exposes canonical identity and Person structured data", () => {
+  const html = readIndex();
+
+  assert.match(html, /<link rel="canonical" href="https:\/\/yuehuazhu\.github\.io\/">/);
+  const schemaMatch = html.match(/<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/);
+  assert.ok(schemaMatch, "expected Person JSON-LD");
+
+  const schema = JSON.parse(schemaMatch[1]);
+  assert.equal(schema["@type"], "Person");
+  assert.equal(schema.name, "Yuehua Zhu");
+  assert.equal(schema.alternateName, "朱跃华");
+  assert.equal(schema.url, "https://yuehuazhu.github.io/");
+  assert.ok(schema.sameAs.includes("https://github.com/YuehuaZhu"));
+  assert.ok(schema.sameAs.some((url) => url.startsWith("https://scholar.google.com/citations?user=NW7Fu6EAAAAJ")));
+});
+
 test("homepage contains the revised bilingual content", () => {
   const html = readIndex();
 
@@ -37,6 +53,8 @@ test("homepage contains the revised bilingual content", () => {
   assert.match(html, /Since Jan 2026/);
   assert.match(html, /内容推荐与大模型算法/);
   assert.match(html, /Content Recommendation &amp; LLM Systems/);
+  assert.match(html, /data-en="Tencent Official Feature ↗"[^>]+href="https:\/\/mp\.weixin\.qq\.com\/s\/vSQpmkuG-E8HUKv7FLai6g"/);
+  assert.match(html, />腾讯官方报道 ↗<\/a>/);
   assert.doesNotMatch(html, /项目与奖项材料|Project &amp; Award Materials|高级算法专家|Senior Algorithm Expert/);
   assert.doesNotMatch(html, /正文保持克制|The main narrative stays concise/);
 });

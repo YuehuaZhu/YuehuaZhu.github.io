@@ -8,6 +8,8 @@ const requiredFiles = [
   "assets/images/profile.jpg",
   "assets/images/favicon.png",
   "assets/docs/Yuehua_Zhu_CV_public.pdf",
+  "robots.txt",
+  "sitemap.xml",
 ];
 
 for (const file of requiredFiles) {
@@ -16,8 +18,13 @@ for (const file of requiredFiles) {
 }
 
 const html = readFileSync("index.html", "utf8");
-for (const asset of requiredFiles.slice(1)) {
+for (const asset of requiredFiles.filter((file) => file.startsWith("assets/"))) {
   assert.match(html, new RegExp(asset.replaceAll(".", "\\.")), `${asset} is not referenced`);
 }
+
+const robots = readFileSync("robots.txt", "utf8");
+const sitemap = readFileSync("sitemap.xml", "utf8");
+assert.match(robots, /Sitemap: https:\/\/yuehuazhu\.github\.io\/sitemap\.xml/);
+assert.match(sitemap, /<loc>https:\/\/yuehuazhu\.github\.io\/<\/loc>/);
 
 console.log(`Verified ${requiredFiles.length} production files.`);
