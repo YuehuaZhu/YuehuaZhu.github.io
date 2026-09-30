@@ -136,7 +136,7 @@ Run: `npx -y node@22 --test && npx -y node@22 scripts/verify-site.mjs`
 
 Expected: all tests pass and 8 production files are verified.
 
-- [ ] **Step 3: Commit implementation and create a hotfix PR**
+- [x] **Step 3: Commit implementation and create a hotfix PR**
 
 Commit the implementation with `feat: add search discovery signals and Tencent source`, push the branch, and create a PR describing SEO files, structured data, and the verified Tencent AI Lab link.
 
