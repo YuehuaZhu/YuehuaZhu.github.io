@@ -24,11 +24,11 @@
 - Modify: `tests/site-content.test.mjs`
 - Modify: `scripts/verify-site.mjs`
 
-- [ ] **Step 1: Add failing homepage assertions**
+- [x] **Step 1: Add failing homepage assertions**
 
 Add a test that requires a self-referencing canonical link, an `application/ld+json` script, and the Tencent URL with `data-en="Tencent Official Feature ↗"` and Chinese text `腾讯官方报道 ↗`.
 
-- [ ] **Step 2: Add failing JSON-LD assertions**
+- [x] **Step 2: Add failing JSON-LD assertions**
 
 Extract the JSON-LD script body, parse it with `JSON.parse`, and assert:
 
@@ -41,11 +41,11 @@ assert.ok(schema.sameAs.includes("https://github.com/YuehuaZhu"));
 assert.ok(schema.sameAs.some((url) => url.startsWith("https://scholar.google.com/citations?user=NW7Fu6EAAAAJ")));
 ```
 
-- [ ] **Step 3: Extend the production-file verifier**
+- [x] **Step 3: Extend the production-file verifier**
 
 Add `robots.txt` and `sitemap.xml` to `requiredFiles`, then assert both files reference `https://yuehuazhu.github.io/` and robots references the absolute sitemap URL.
 
-- [ ] **Step 4: Run the tests and verify RED**
+- [x] **Step 4: Run the tests and verify RED**
 
 Run: `npm test && npm run check`
 
@@ -58,7 +58,7 @@ Expected: failures for missing canonical, JSON-LD, Tencent link, `robots.txt`, a
 - Create: `robots.txt`
 - Create: `sitemap.xml`
 
-- [ ] **Step 1: Add homepage identity metadata**
+- [x] **Step 1: Add homepage identity metadata**
 
 Add the following within `<head>`:
 
@@ -82,7 +82,7 @@ Add the following within `<head>`:
 </script>
 ```
 
-- [ ] **Step 2: Add the Tencent official feature link**
+- [x] **Step 2: Add the Tencent official feature link**
 
 After the ProxyGML code link, add:
 
@@ -90,7 +90,7 @@ After the ProxyGML code link, add:
 <a class="i18n" data-en="Tencent Official Feature ↗" href="https://mp.weixin.qq.com/s/vSQpmkuG-E8HUKv7FLai6g" target="_blank" rel="noopener noreferrer">腾讯官方报道 ↗</a>
 ```
 
-- [ ] **Step 3: Create crawler discovery files**
+- [x] **Step 3: Create crawler discovery files**
 
 Create `robots.txt`:
 
@@ -113,7 +113,7 @@ Create `sitemap.xml`:
 </urlset>
 ```
 
-- [ ] **Step 4: Run the tests and verify GREEN**
+- [x] **Step 4: Run the tests and verify GREEN**
 
 Run: `npm test && npm run check && git diff --check`
 
@@ -124,13 +124,13 @@ Expected: 0 failures, production verifier reports 8 files, and diff check exits 
 **Files:**
 - No production files beyond Task 2.
 
-- [ ] **Step 1: Run the browser check**
+- [x] **Step 1: Run the browser check**
 
 Start the existing local HTTP server and Chrome CDP session, then run `npm run check:browser`.
 
 Expected: desktop Chinese, desktop English, language persistence, mobile layout, and mobile navigation assertions all pass without overflow.
 
-- [ ] **Step 2: Run CI-equivalent checks under Node 22**
+- [x] **Step 2: Run CI-equivalent checks under Node 22**
 
 Run: `npx -y node@22 --test && npx -y node@22 scripts/verify-site.mjs`
 
