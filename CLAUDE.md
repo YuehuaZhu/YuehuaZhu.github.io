@@ -63,7 +63,7 @@ githubResume/
 - 桌面和 390px 移动视口均不得横向溢出或遮挡内容。
 - 中文、英文可双向切换，刷新后保留语言，`?lang=zh` / `?lang=en` 可直接访问。
 - 邮箱、GitHub、Google Scholar、简历下载及证据链接必须保留有效地址。
-- canonical、Person JSON-LD、robots 与 sitemap 必须统一指向正式站根地址。
+- canonical、稳定的中英双语标题、`WebSite + ProfilePage + Person` JSON-LD、robots 与 sitemap 必须统一指向正式站根地址；语言切换不得动态改写页面标题。
 - Google Search Console 验证文件必须保持原文件名和原始内容，并在正式站根路径返回 200。
 - 修改完成后运行 `npm test` 和 `npm run check`，并使用浏览器截图检查桌面与移动端。
 

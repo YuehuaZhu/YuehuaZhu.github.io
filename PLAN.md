@@ -37,7 +37,7 @@
 - 英文模式下，导航与主标题均显示 “Yuehua Zhu”。
 - 公开英文简历将 “Incoming Postdoctoral Researcher” 改为 “Postdoctoral Researcher”。
 - 新头像在现有构图基础上收紧约 15%，提高小尺寸下的人脸识别度。
-- 首页增加 canonical 与 Person JSON-LD，根目录增加 robots 和 sitemap；NeurIPS 2020 论文补充腾讯 AI Lab 官方报道。
+- 首页使用稳定的中英双语搜索标题，并以 `WebSite + ProfilePage + Person` JSON-LD 关联中文名、英文名与外部身份；canonical、robots 和 sitemap 统一指向正式站根地址；NeurIPS 2020 论文补充腾讯 AI Lab 官方报道。
 - 根目录保留 Google Search Console HTML 所有权验证文件，部署后由站点所有者完成验证、提交 sitemap 与请求收录。
 
 ## 路线图
