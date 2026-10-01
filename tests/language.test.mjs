@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
 
 test("language resolution follows query, storage, browser, fallback priority", async () => {
@@ -13,4 +13,10 @@ test("language resolution follows query, storage, browser, fallback priority", a
   assert.equal(resolveLanguage("", "", "en-GB"), "en");
   assert.equal(resolveLanguage("", "", "fr-FR"), "zh");
   assert.equal(resolveLanguage("?lang=invalid", "invalid", "en-US"), "en");
+});
+
+test("language switching does not rewrite the stable bilingual document title", () => {
+  const script = readFileSync("assets/js/site.js", "utf8");
+
+  assert.doesNotMatch(script, /document\.title\s*=/);
 });
