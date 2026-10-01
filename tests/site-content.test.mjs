@@ -29,20 +29,35 @@ test("homepage exposes the public identity and evidence links", () => {
   assert.match(html, /assets\/images\/favicon\.png/);
 });
 
-test("homepage exposes canonical identity and Person structured data", () => {
+test("homepage exposes stable bilingual search metadata", () => {
   const html = readIndex();
 
   assert.match(html, /<link rel="canonical" href="https:\/\/yuehuazhu\.github\.io\/">/);
+  assert.match(html, /<title>朱跃华博士 \| Yuehua Zhu, Ph\.D\. Homepage<\/title>/);
+  assert.match(html, /<meta property="og:title" content="朱跃华博士 \| Yuehua Zhu, Ph\.D\. Homepage">/);
+  assert.match(html, /<meta name="description" content="朱跃华（Yuehua Zhu），工学博士/);
+});
+
+test("homepage connects the website, profile page, and person identity", () => {
+  const html = readIndex();
   const schemaMatch = html.match(/<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/);
-  assert.ok(schemaMatch, "expected Person JSON-LD");
+  assert.ok(schemaMatch, "expected identity JSON-LD");
 
   const schema = JSON.parse(schemaMatch[1]);
-  assert.equal(schema["@type"], "Person");
-  assert.equal(schema.name, "Yuehua Zhu");
-  assert.equal(schema.alternateName, "朱跃华");
-  assert.equal(schema.url, "https://yuehuazhu.github.io/");
-  assert.ok(schema.sameAs.includes("https://github.com/YuehuaZhu"));
-  assert.ok(schema.sameAs.some((url) => url.startsWith("https://scholar.google.com/citations?user=NW7Fu6EAAAAJ")));
+  assert.ok(Array.isArray(schema["@graph"]), "expected an @graph array");
+
+  const website = schema["@graph"].find((entry) => entry["@type"] === "WebSite");
+  const profile = schema["@graph"].find((entry) => entry["@type"] === "ProfilePage");
+  const person = schema["@graph"].find((entry) => entry["@type"] === "Person");
+
+  assert.equal(website.name, "Yuehua Zhu");
+  assert.ok(website.alternateName.includes("朱跃华博士个人主页"));
+  assert.equal(profile.mainEntity["@id"], "https://yuehuazhu.github.io/#person");
+  assert.equal(person.name, "Yuehua Zhu");
+  assert.ok(person.alternateName.includes("朱跃华"));
+  assert.equal(person.url, "https://yuehuazhu.github.io/");
+  assert.ok(person.sameAs.includes("https://github.com/YuehuaZhu"));
+  assert.ok(person.sameAs.some((url) => url.startsWith("https://scholar.google.com/citations?user=NW7Fu6EAAAAJ")));
 });
 
 test("homepage contains the revised bilingual content", () => {

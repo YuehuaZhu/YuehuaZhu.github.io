@@ -53,8 +53,6 @@ const initializeSite = () => {
       button.setAttribute("aria-pressed", String(button.dataset.lang === selected));
     });
 
-    document.title = selected === "en" ? "Yuehua Zhu, Ph.D." : "朱跃华博士 | Yuehua Zhu, Ph.D.";
-
     if (persist) storeLanguage(selected);
     if (updateUrl) {
       const url = new URL(window.location.href);
